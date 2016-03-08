@@ -247,11 +247,9 @@
       
         
           
-            <p>###正则表达式（针对于字符串）</p>
-<p>#问题<br>在正则表达式的联系中，对于字符串的函数或者修改，都是重新生成新的字符串，如果在用原来的引用，则会也是原来的字符串，对字符串的修改也不会生效。</p>
-<p>##加密和解密</p>
-<ul>
-<li>对称式密钥，非对称式密钥<br>非对称式加密的算法RSA<br>对称式的加密算法：DES,AES<br>###自顶向下的设计方法输出相应的图形<br>```<br>public class UpToDown {<br>  public static void main(String[] args) {<pre><code>// 搭建一个框架，用来装需要打印出的内容，大小够用就好
+            <h3 id="正则表达式（针对于字符串）"><a href="#正则表达式（针对于字符串）" class="headerlink" title="正则表达式（针对于字符串）"></a>正则表达式（针对于字符串）</h3><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在正则表达式的联系中，对于字符串的函数或者修改，都是重新生成新的字符串，如果在用原来的引用，则会也是原来的字符串，对字符串的修改也不会生效。</p>
+<h2 id="加密和解密"><a href="#加密和解密" class="headerlink" title="加密和解密"></a>加密和解密</h2><ul>
+<li>对称式密钥，非对称式密钥<br>非对称式加密的算法RSA<br>对称式的加密算法：DES,AES<h3 id="自顶向下的设计方法输出相应的图形"><a href="#自顶向下的设计方法输出相应的图形" class="headerlink" title="自顶向下的设计方法输出相应的图形"></a>自顶向下的设计方法输出相应的图形</h3>```<br>public class UpToDown {<br>  public static void main(String[] args) {<pre><code>// 搭建一个框架，用来装需要打印出的内容，大小够用就好
 char[][] cache = new char[20][50];
 // 分解成先划横线再画竖线
 for (int i = 0; i &lt; 4; i++) {
