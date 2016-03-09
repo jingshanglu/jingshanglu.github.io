@@ -67,12 +67,14 @@
 <meta property="og:description" content="正则表达式（针对于字符串）问题在正则表达式的联系中，对于字符串的函数或者修改，都是重新生成新的字符串，如果在用原来的引用，则会也是原来的字符串，对字符串的修改也不会生效。
 加密和解密
 对称式密钥，非对称式密钥非对称式加密的算法RSA对称式的加密算法：DES,AES自顶向下的设计方法输出相应的图形1234567891011121314151617181920212223242526272829303">
-<meta property="og:updated_time" content="2016-03-09T09:18:16.896Z">
+<meta property="og:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/c4500d3a-0772-4fc2-9086-d480ac611b6f.png">
+<meta property="og:updated_time" content="2016-03-09T15:06:52.964Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法">
 <meta name="twitter:description" content="正则表达式（针对于字符串）问题在正则表达式的联系中，对于字符串的函数或者修改，都是重新生成新的字符串，如果在用原来的引用，则会也是原来的字符串，对字符串的修改也不会生效。
 加密和解密
 对称式密钥，非对称式密钥非对称式加密的算法RSA对称式的加密算法：DES,AES自顶向下的设计方法输出相应的图形1234567891011121314151617181920212223242526272829303">
+<meta name="twitter:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/c4500d3a-0772-4fc2-9086-d480ac611b6f.png">
 
 
 
@@ -146,7 +148,7 @@
             
               <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -156,7 +158,7 @@
             
               <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -219,7 +221,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-03-08T22:30:54+08:00" content="2016-03-08">
               2016-03-08
             </time>
@@ -256,7 +258,7 @@
       
         <h3 id="正则表达式（针对于字符串）"><a href="#正则表达式（针对于字符串）" class="headerlink" title="正则表达式（针对于字符串）"></a>正则表达式（针对于字符串）</h3><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在正则表达式的联系中，对于字符串的函数或者修改，都是重新生成新的字符串，如果在用原来的引用，则会也是原来的字符串，对字符串的修改也不会生效。</p>
 <h2 id="加密和解密"><a href="#加密和解密" class="headerlink" title="加密和解密"></a>加密和解密</h2><ul>
-<li>对称式密钥，非对称式密钥<br>非对称式加密的算法RSA<br>对称式的加密算法：DES,AES<h3 id="自顶向下的设计方法输出相应的图形"><a href="#自顶向下的设计方法输出相应的图形" class="headerlink" title="自顶向下的设计方法输出相应的图形"></a>自顶向下的设计方法输出相应的图形</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">public class UpToDown &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        // 搭建一个框架，用来装需要打印出的内容，大小够用就好</span><br><span class="line">        char[][] cache = new char[20][50];</span><br><span class="line">        // 分解成先划横线再画竖线</span><br><span class="line">        for (int i = 0; i &lt; 4; i++) &#123;</span><br><span class="line">            line_h(cache,i*3,0,32);</span><br><span class="line">        &#125;</span><br><span class="line">        for(int i=0;i&lt;9;i++)&#123;</span><br><span class="line">            line_l(cache,i*4,0,9);</span><br><span class="line">        &#125;</span><br><span class="line">        Print(cache);</span><br><span class="line">    &#125;</span><br><span class="line">//    往控制台输出缓存中的内容</span><br><span class="line">    private static void Print(char[][] cache) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        for(int i=0;i&lt;cache.length;i++)&#123;</span><br><span class="line">            for(int j=0;j&lt;cache[i].length;j++)&#123;</span><br><span class="line">                if(cache[i][j]==0)&#123;</span><br><span class="line">                    System.out.print(&quot;&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.print(cache[i][j]);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.print(&quot;\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">//    画出行的内容</span><br><span class="line">    private static void line_l(char[][] cache, int col, int j, int k) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        for(int i=j;i&lt;=k;i++)&#123;</span><br><span class="line">            cache[i][col]=&apos;$&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">//    画出列的内容</span><br><span class="line">    private static void line_h(char[][] cache, int row, int j, int k) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        for(int i=j;i&lt;=k;i++)&#123;</span><br><span class="line">            cache[row][i]=&apos;$&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>对称式密钥，非对称式密钥<br>非对称式加密的算法RSA<br>对称式的加密算法：DES,AES<h3 id="自顶向下的设计方法输出相应的图形"><a href="#自顶向下的设计方法输出相应的图形" class="headerlink" title="自顶向下的设计方法输出相应的图形"></a>自顶向下的设计方法输出相应的图形</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class UpToDown &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        // 搭建一个框架，用来装需要打印出的内容，大小够用就好</span><br><span class="line">        char[][] cache = new char[20][50];</span><br><span class="line">        // 分解成先划横线再画竖线</span><br><span class="line">        for (int i = 0; i &lt; 4; i++) &#123;</span><br><span class="line">            line_h(cache,i*3,0,32);</span><br><span class="line">        &#125;</span><br><span class="line">        for(int i=0;i&lt;9;i++)&#123;</span><br><span class="line">            line_l(cache,i*4,0,9);</span><br><span class="line">        &#125;</span><br><span class="line">        Print(cache);</span><br><span class="line">    &#125;</span><br><span class="line">//    往控制台输出缓存中的内容</span><br><span class="line">    private static void Print(char[][] cache) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        for(int i=0;i&lt;cache.length;i++)&#123;</span><br><span class="line">            for(int j=0;j&lt;cache[i].length;j++)&#123;</span><br><span class="line">                if(cache[i][j]==0)&#123;</span><br><span class="line">                    System.out.print(&quot;&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.print(cache[i][j]);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.print(&quot;\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">//    画出行的内容</span><br><span class="line">    private static void line_l(char[][] cache, int col, int j, int k) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        for(int i=j;i&lt;=k;i++)&#123;</span><br><span class="line">            cache[i][col]=&apos;$&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">//    画出列的内容</span><br><span class="line">    private static void line_h(char[][] cache, int row, int j, int k) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        for(int i=j;i&lt;=k;i++)&#123;</span><br><span class="line">            cache[row][i]=&apos;$&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="自下向上的设计方法向控制台输出图形"><a href="#自下向上的设计方法向控制台输出图形" class="headerlink" title="自下向上的设计方法向控制台输出图形"></a>自下向上的设计方法向控制台输出图形</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 面向对象的面呈思想 可以很好的应对需求不断变化的情况</span><br><span class="line"> * </span><br><span class="line"> * @author dell</span><br><span class="line"> */</span><br><span class="line">public class DownToUp &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        char[][] cache = new char[20][50];</span><br><span class="line">        for (int i = 0; i &lt; 3; i++) &#123;</span><br><span class="line">            for (int j = 0; j &lt; 8; j++) &#123;</span><br><span class="line">                Cell cell = new Cell(i*3, j*4, 5, 4);</span><br><span class="line">                cell.draw(cache);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        Print(cache);</span><br><span class="line">    &#125;</span><br><span class="line">//    往控制台输出缓存中的内容</span><br><span class="line">    public static void Print(char[][] cache) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        for (int i = 0; i &lt; cache.length; i++) &#123;</span><br><span class="line">            for (int j = 0; j &lt; cache[i].length; j++) &#123;</span><br><span class="line">                if (cache[i][j] == 0) &#123;</span><br><span class="line">                    System.out.print(&quot;&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.print(cache[i][j]);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.print(&quot;\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 创建对象</span><br><span class="line"> */</span><br><span class="line">class Cell &#123;</span><br><span class="line">    // x为Cell的行数</span><br><span class="line">    private int x;</span><br><span class="line">    // y为Cell的列数</span><br><span class="line">    private int y;</span><br><span class="line">    // width为Cell的宽度</span><br><span class="line">    private int width;</span><br><span class="line">    // height为Cell的高度</span><br><span class="line">    private int height;</span><br><span class="line">    // 构造函数</span><br><span class="line">    public Cell(int x, int y, int width, int height) &#123;</span><br><span class="line">        this.x = x;</span><br><span class="line">        this.y = y;</span><br><span class="line">        this.width = width;</span><br><span class="line">        this.height = height;</span><br><span class="line">    &#125;</span><br><span class="line">    // 把Cell画到char[][]上</span><br><span class="line">    public void draw(char[][] cache) &#123;</span><br><span class="line">        for (int i = 0; i &lt; width; i++) &#123;</span><br><span class="line">            // 画上面的一行</span><br><span class="line">            cache[x][y + i] = &apos;$&apos;;</span><br><span class="line">            // 画下面的一行</span><br><span class="line">            cache[x + height - 1][y + i] = &apos;$&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">        for (int j = 0; j &lt; height; j++) &#123;</span><br><span class="line">            // 画左边一列</span><br><span class="line">            cache[x + j][y] = &apos;$&apos;;</span><br><span class="line">            // 画右边一列</span><br><span class="line">            cache[x + j][y + width - 1] = &apos;$&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -282,6 +284,7 @@
 <li>一般函数的调用规则<br>例子：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">public void f()&#123;</span><br><span class="line">int a=5;</span><br><span class="line">int b=6;</span><br><span class="line">int c=g(5,6);</span><br><span class="line">&#125;</span><br><span class="line">public int g(int x,int y)&#123;</span><br><span class="line">return x+y;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">//在栈中的内存变量创建顺序如下：</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<p><img src="http://7xrp6g.com1.z0.glb.clouddn.com/c4500d3a-0772-4fc2-9086-d480ac611b6f.png" alt=""></p>
 <ul>
 <li>递归函数的调用方式<br>和一般函数的调用方式类似，只不过多次调用自己本身，创建多个本身函数的运行环境</li>
 <li>一般函数和递归函数的效率问题：<br>递归函数会产生大量的函数调用，因为函数调用不仅浪费时间同时浪费空间，所以在一般情况下（复杂度不明显高于迭代算法的时候）用迭代的效率比较高</li>
@@ -408,10 +411,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -428,7 +431,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">1</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
           
@@ -438,7 +441,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -500,7 +503,7 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
