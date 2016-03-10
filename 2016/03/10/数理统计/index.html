@@ -1,0 +1,757 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数理统计," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="第一章
+概率的定义，古典概率（等可能概率事件），条件概率,全概率公式，完备事件组，贝叶斯公式，事件的独立性概率的定义：1. 概率是一种测度（测度是针对积分在集合上的的推广，是在一个确定可测的集合的子集合上的函数，函数值是0到1）1. 测度满足（确定可测集合的测度为1）（子集的测度大于等于0）（对于不想交的可列子集的和测度等于可列子集的测的和）
+古典概率：1. 课程中只是对于简单的，不可分的事件进行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数理统计">
+<meta property="og:url" content="http://yoursite.com/2016/03/10/数理统计/index.html">
+<meta property="og:site_name" content="Ternence">
+<meta property="og:description" content="第一章
+概率的定义，古典概率（等可能概率事件），条件概率,全概率公式，完备事件组，贝叶斯公式，事件的独立性概率的定义：1. 概率是一种测度（测度是针对积分在集合上的的推广，是在一个确定可测的集合的子集合上的函数，函数值是0到1）1. 测度满足（确定可测集合的测度为1）（子集的测度大于等于0）（对于不想交的可列子集的和测度等于可列子集的测的和）
+古典概率：1. 课程中只是对于简单的，不可分的事件进行">
+<meta property="og:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics1.png">
+<meta property="og:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics2.png">
+<meta property="og:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics3.png">
+<meta property="og:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics4.png">
+<meta property="og:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics5.png">
+<meta property="og:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics6.png">
+<meta property="og:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics7.png">
+<meta property="og:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics8.png">
+<meta property="og:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics9.png">
+<meta property="og:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics10.png">
+<meta property="og:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics11.png">
+<meta property="og:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics12.png">
+<meta property="og:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics13.png">
+<meta property="og:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics14.png">
+<meta property="og:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics15.png">
+<meta property="og:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics16.png">
+<meta property="og:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics17.png">
+<meta property="og:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics18.png">
+<meta property="og:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics19.png">
+<meta property="og:updated_time" content="2016-03-10T10:55:43.965Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数理统计">
+<meta name="twitter:description" content="第一章
+概率的定义，古典概率（等可能概率事件），条件概率,全概率公式，完备事件组，贝叶斯公式，事件的独立性概率的定义：1. 概率是一种测度（测度是针对积分在集合上的的推广，是在一个确定可测的集合的子集合上的函数，函数值是0到1）1. 测度满足（确定可测集合的测度为1）（子集的测度大于等于0）（对于不想交的可列子集的和测度等于可列子集的测的和）
+古典概率：1. 课程中只是对于简单的，不可分的事件进行">
+<meta name="twitter:image" content="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> 数理统计 | Ternence </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Ternence</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">lets go</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                数理统计
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-03-10T17:48:25+08:00" content="2016-03-10">
+              2016-03-10
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/10/数理统计/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/10/数理统计/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><ul>
+<li>概率的定义，古典概率（等可能概率事件），条件概率,全概率公式，完备事件组，贝叶斯公式，事件的独立性<br>概率的定义：1. 概率是一种测度（测度是针对积分在集合上的的推广，是在一个确定可测的集合的子集合上的函数，函数值是0到1）<pre><code>1. 测度满足（确定可测集合的测度为1）（子集的测度大于等于0）（对于不想交的可列子集的和测度等于可列子集的测的和）
+</code></pre>古典概率：1. 课程中只是对于简单的，不可分的事件进行概率的计算，实际中，是这些基本事件组合成的复合事件进行概率的计算。这些复合事件概率的计算方法                            是由基本的事件进行排列或者组合（按着人们日常生活中对此事件的进行流程而计算的）<br>条件概率：其实任何概率都是条件概率，只不过平常所说的概率是针对那个已知的可测的总的事件已经发生的条件概率而言的。（乘法公式来自于条件概率）<br>完备事件组：随机事件E的样本空间S，把S分为一个可列的，没有交集的，和事件是S的事件列B1,B2,B3…..Bn，设A事件是S的子集，这个事件列就是完备事件组；求A的概率p(A)=∑p(Bi)*p(A|Bi),.这就是全概率公式<br>贝叶斯公式：是在事件A的条件下，样本空间S的一个划分中的元素发生的概率，想法：先通过全概率公式求出A发生的概率作为分母，把在A条件下Bi发生的概率作为分子，从而求出。<br>相互独立事件：往往不是用定义去检验事件的独立性，而是用实际情况来判断事件的独立性。相互独立事件的概率是概率相加。</li>
+<li>疑惑：两个事件的和事件概率（就是两个事件至少发生一个的概率）<br>方法：两事件概率和减去两事件同时发生的概率。<br>对于求概率 ：事件是否独立，独立事件的概率怎么求，不相容事件，不相容事件概率怎么求       <h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2></li>
+<li>随机变量及其分步，</li>
+<li>随机变量：是自变量为基本事件，函数值为实数的一个函数。(为了表示随即实验结果而引入的数字化的结果表现形式；将基本的事件投射到实数空间上去，采用实数值来表示一个基本事件)<br>离散型随机变量：随机变量个数是有限的，或者是无限可列的（可数的）（自己的理解（可数的概念）：可以与自然数形成一一对应的双射）<br>连续性随机变量：</li>
+<li>随机变量的分部：表示随机变量取值的概率规律，称为随机变量的概率分布</li>
+<li>离散型随机变量的分部：<ul>
+<li>o-1分部（又称两点分布，是说样本点只有2个元素）<br>n重伯努利事件：把符合0-1分布的随机实验重复n次<br>事件A在n重伯努利事件中发生的次数符合二项分布</li>
+<li>二项分布</li>
+<li>泊松分部（概率分布如下）<br><img src="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics1.png" alt=""><br>*在离散型随机变量的概率值变成了既定的概率计算公式 </li>
+</ul>
+</li>
+<li>分布函数</li>
+<li>概率密度函数</li>
+<li>连续性随机变量分布<br><em>均匀分布
+</em>指数分布（无记忆性）（概率分布率如下）<br><img src="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics2.png" alt=""><br>*正态分布（高斯创建的，又称高斯分布）</li>
+<li>随机变量函数的概率分布（概率根据随机变量的概率去计算）<br><em>随机变量X的概率密度函数为f(x),取值范围为（a，b），在此区间上有函数g(x),g’(x)大于0或者小于0，
+</em>令y=g(x),随机变量y的概率密度为<br><img src="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics3.png" alt=""></li>
+</ul>
+<h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><ul>
+<li>多为随机变量及其分布（以二维随机变量为主），边缘分布，条件分布，二维离散型随机变量，二维连续型随机变量；边缘分布（基于多为随机变量）</li>
+<li>多为随机变量的来源：在实际生活中，大部分随机事件只用一个随机变量描述是不够的，需要有多个随机变量（多个特征属性）来描述，从而引出了对位随机变量的概念。例子：<br>1.打靶时，打靶的位置使用一对实数（两个属性）（x,y）坐标来表示的。<br>1.飞机在空中重心的位置是由3个实数(3个属性)（x,y,z）来表示的。</li>
+<li>概念：分布律（在离散型二维随机变量中，一个样本点的概率既是分布律，也称联合分布律）<h3 id="重点：随机变量分布函数不是自己得出来的，是给出来的获得用概率密度函数求出来的。"><a href="#重点：随机变量分布函数不是自己得出来的，是给出来的获得用概率密度函数求出来的。" class="headerlink" title="重点：随机变量分布函数不是自己得出来的，是给出来的获得用概率密度函数求出来的。"></a>重点：随机变量分布函数不是自己得出来的，是给出来的获得用概率密度函数求出来的。</h3></li>
+<li>边缘分布函数（确定一个变量，是其他的变量取所有值，连续性和离散型）</li>
+<li>条件分布函数<h3 id="疑问：多维随机分布（各元素的分布是否独立）两个事件相互独立和两个随机变量相互独立，之间的区别"><a href="#疑问：多维随机分布（各元素的分布是否独立）两个事件相互独立和两个随机变量相互独立，之间的区别" class="headerlink" title="疑问：多维随机分布（各元素的分布是否独立）两个事件相互独立和两个随机变量相互独立，之间的区别"></a>疑问：多维随机分布（各元素的分布是否独立）两个事件相互独立和两个随机变量相互独立，之间的区别</h3></li>
+<li>两个随机变量的相互独立的定义：对于两个随机变量X,Y，各自的分布函数是F(X),F(Y),若F(X,Y)=F(X)*F(Y)，则称X，Y两随机变量相互独立，事件和随机变量的关系，<h3 id="感悟：两个独立的随机变量的函数的分布率是使函数值成立的每个随机变量的概率之积的和。（多维离散型随机变量函数的概率分布（求法：使函数值成立的随机变量的概率积的和），连续性随机变量的概率分布（求法：例子X-Y-Z-Z的概率分布，在X-Y-lt-Z的区域对Z的密度函数进行积分），）待了解知识：相关性"><a href="#感悟：两个独立的随机变量的函数的分布率是使函数值成立的每个随机变量的概率之积的和。（多维离散型随机变量函数的概率分布（求法：使函数值成立的随机变量的概率积的和），连续性随机变量的概率分布（求法：例子X-Y-Z-Z的概率分布，在X-Y-lt-Z的区域对Z的密度函数进行积分），）待了解知识：相关性" class="headerlink" title="感悟：两个独立的随机变量的函数的分布率是使函数值成立的每个随机变量的概率之积的和。（多维离散型随机变量函数的概率分布（求法：使函数值成立的随机变量的概率积的和），连续性随机变量的概率分布（求法：例子X+Y=Z,Z的概率分布，在X+Y&lt;=Z的区域对Z的密度函数进行积分），）待了解知识：相关性"></a>感悟：两个独立的随机变量的函数的分布率是使函数值成立的每个随机变量的概率之积的和。（多维离散型随机变量函数的概率分布（求法：使函数值成立的随机变量的概率积的和），连续性随机变量的概率分布（求法：例子X+Y=Z,Z的概率分布，在X+Y&lt;=Z的区域对Z的密度函数进行积分），）待了解知识：相关性</h3></li>
+<li>卷积公示：利用各自随机变量的边缘分布函数，表示出多个随机变量的函数值的概率密度函数。<h3 id="随机变量数字特征和大数定理和中心极限定理"><a href="#随机变量数字特征和大数定理和中心极限定理" class="headerlink" title="随机变量数字特征和大数定理和中心极限定理"></a>随机变量数字特征和大数定理和中心极限定理</h3></li>
+<li>随机变量的数字特征（期望，方差，协方差，相关系数和距）<h3 id="随机变量的概率分布是（离散型随机变量的概率密度函数）"><a href="#随机变量的概率分布是（离散型随机变量的概率密度函数）" class="headerlink" title="随机变量的概率分布是（离散型随机变量的概率密度函数）"></a>随机变量的概率分布是（离散型随机变量的概率密度函数）</h3></li>
+<li>平均分布的期望是区间的中点，泊松分布的期望是拉姆达</li>
+<li>随机变量函数的数学期望：<br><img src="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics4.png" alt=""></li>
+<li>推广到多维随机变量的情况下，数学期望的求法：<br><img src="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics5.png" alt=""></li>
+<li>数学期望的性质：<br><img src="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics6.png" alt=""></li>
+<li>方差（各个值与平均值差的平方的期望）<br>求方差的公式与证明：<br><img src="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics7.png" alt=""></li>
+<li>方差的性质;<br><img src="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics8.png" alt=""></li>
+<li>协方差的定义和协方差的性质：<br><img src="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics9.png" alt=""><br><img src="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics10.png" alt=""></li>
+<li>原点矩和中心距的概念;<br><img src="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics11.png" alt=""><br><img src="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics12.png" alt=""></li>
+<li>切比雪夫不等式（用于概率和频率的关系）<br><img src="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics13.png" alt=""></li>
+<li>协方差矩阵/<br>利用协方差表示n元随机变量的概率密度函数（n元正态分布的定义）<br><img src="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics14.png" alt=""><br><img src="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics15.png" alt=""><br><img src="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics16.png" alt=""><br><img src="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics17.png" alt=""><h3 id="大数定律和中心极限定理"><a href="#大数定律和中心极限定理" class="headerlink" title="大数定律和中心极限定理"></a>大数定律和中心极限定理</h3><img src="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics18.png" alt=""></li>
+<li>中心极限定理：中心极限定理是研究独立随机变量和的极限分布为正态分布的问题。<br>设从均值为μ、方差为σ^2;（有限）的任意一个总体中抽取样本量为n的样本，当n充分大时，样本均值的抽样分布近似服从均值为μ、方差为σ^2/n 的正态分布。<br><img src="http://7xrp6g.com1.z0.glb.clouddn.com/mathematical_statistics19.png" alt=""></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数理统计/" rel="tag">#数理统计</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/08/算法/" rel="next" title="算法">
+                <i class="fa fa-chevron-left"></i> 算法
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/10/数理统计/"
+           data-title="数理统计" data-url="http://yoursite.com/2016/03/10/数理统计/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xrp6g.com1.z0.glb.clouddn.com/head.jpg"
+               alt="jingshanglu" />
+          <p class="site-author-name" itemprop="name">jingshanglu</p>
+          <p class="site-description motion-element" itemprop="description">Talk is cheap, show me the code.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+          
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章"><span class="nav-number">1.</span> <span class="nav-text">第一章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章"><span class="nav-number">2.</span> <span class="nav-text">第二章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三章"><span class="nav-number">3.</span> <span class="nav-text">第三章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重点：随机变量分布函数不是自己得出来的，是给出来的获得用概率密度函数求出来的。"><span class="nav-number">3.1.</span> <span class="nav-text">重点：随机变量分布函数不是自己得出来的，是给出来的获得用概率密度函数求出来的。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#疑问：多维随机分布（各元素的分布是否独立）两个事件相互独立和两个随机变量相互独立，之间的区别"><span class="nav-number">3.2.</span> <span class="nav-text">疑问：多维随机分布（各元素的分布是否独立）两个事件相互独立和两个随机变量相互独立，之间的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#感悟：两个独立的随机变量的函数的分布率是使函数值成立的每个随机变量的概率之积的和。（多维离散型随机变量函数的概率分布（求法：使函数值成立的随机变量的概率积的和），连续性随机变量的概率分布（求法：例子X-Y-Z-Z的概率分布，在X-Y-lt-Z的区域对Z的密度函数进行积分），）待了解知识：相关性"><span class="nav-number">3.3.</span> <span class="nav-text">感悟：两个独立的随机变量的函数的分布率是使函数值成立的每个随机变量的概率之积的和。（多维离散型随机变量函数的概率分布（求法：使函数值成立的随机变量的概率积的和），连续性随机变量的概率分布（求法：例子X+Y=Z,Z的概率分布，在X+Y<=Z的区域对Z的密度函数进行积分），）待了解知识：相关性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机变量数字特征和大数定理和中心极限定理"><span class="nav-number">3.4.</span> <span class="nav-text">随机变量数字特征和大数定理和中心极限定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机变量的概率分布是（离散型随机变量的概率密度函数）"><span class="nav-number">3.5.</span> <span class="nav-text">随机变量的概率分布是（离散型随机变量的概率密度函数）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大数定律和中心极限定理"><span class="nav-number">3.6.</span> <span class="nav-text">大数定律和中心极限定理</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jingshanglu</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ternence"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+
+</body>
+</html>
