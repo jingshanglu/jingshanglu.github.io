@@ -1,0 +1,762 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="面试," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="根据二叉树的前序遍历和中序遍历来重建二叉树（二叉树的存储结构用二叉链表）1234567891011121314151617181920212223242526272829303132class TreeNode &amp;#123;    int val;   TreeNode left;   TreeNode right;   TreeNode(int x) &amp;#123; val = x; &amp;#125;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指offer">
+<meta property="og:url" content="http://yoursite.com/2016/04/19/剑指offer/index.html">
+<meta property="og:site_name" content="Ternence">
+<meta property="og:description" content="根据二叉树的前序遍历和中序遍历来重建二叉树（二叉树的存储结构用二叉链表）1234567891011121314151617181920212223242526272829303132class TreeNode &amp;#123;    int val;   TreeNode left;   TreeNode right;   TreeNode(int x) &amp;#123; val = x; &amp;#125;">
+<meta property="og:updated_time" content="2016-04-19T09:20:04.268Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="剑指offer">
+<meta name="twitter:description" content="根据二叉树的前序遍历和中序遍历来重建二叉树（二叉树的存储结构用二叉链表）1234567891011121314151617181920212223242526272829303132class TreeNode &amp;#123;    int val;   TreeNode left;   TreeNode right;   TreeNode(int x) &amp;#123; val = x; &amp;#125;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> 剑指offer | Ternence </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-75512444-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Ternence</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">lets go</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                剑指offer
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-04-19T17:19:17+08:00" content="2016-04-19">
+              2016-04-19
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/19/剑指offer/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/19/剑指offer/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="根据二叉树的前序遍历和中序遍历来重建二叉树（二叉树的存储结构用二叉链表）"><a href="#根据二叉树的前序遍历和中序遍历来重建二叉树（二叉树的存储结构用二叉链表）" class="headerlink" title="根据二叉树的前序遍历和中序遍历来重建二叉树（二叉树的存储结构用二叉链表）"></a>根据二叉树的前序遍历和中序遍历来重建二叉树（二叉树的存储结构用二叉链表）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">class TreeNode &#123;</span><br><span class="line">    int val;</span><br><span class="line">   TreeNode left;</span><br><span class="line">   TreeNode right;</span><br><span class="line">   TreeNode(int x) &#123; val = x; &#125;</span><br><span class="line">  &#125;</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public TreeNode reConstructBinaryTree(int [] pre,int [] in) &#123;</span><br><span class="line">        //判断跳出条件</span><br><span class="line">        if(pre.length==0 || in.length==0)&#123;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">        return rNode(pre,0,pre.length-1,in,0,in.length-1);</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    //构建一个函数，产生每一个节点</span><br><span class="line">    public TreeNode rNode(int[] pre,int startpre,int endpre,int[] in,int startin,int endin)&#123;</span><br><span class="line">        //判断合理性或者递归出口</span><br><span class="line">        if(startpre&gt;endpre || startin&gt;endin)&#123;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">        TreeNode root=new TreeNode(pre[startpre]);</span><br><span class="line">        for(int i=startin;i&lt;=endin;i++)&#123;</span><br><span class="line">            if(in[i]==pre[startpre])&#123;</span><br><span class="line">                root.left=rNode(pre,startpre+1,startpre+i-startin,in,startin,i-1);</span><br><span class="line">                root.right=rNode(pre,startpre+i-startin+1,endpre,in,i+1,endin);</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line">        return root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="利用两个栈（stack）实现一个队列的pop-和push-操作"><a href="#利用两个栈（stack）实现一个队列的pop-和push-操作" class="headerlink" title="利用两个栈（stack）实现一个队列的pop()和push()操作"></a>利用两个栈（stack）实现一个队列的pop()和push()操作</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Stack;</span><br><span class="line"></span><br><span class="line">public class Solution &#123;</span><br><span class="line">    Stack&lt;Integer&gt; stack1 = new Stack&lt;Integer&gt;();</span><br><span class="line">    Stack&lt;Integer&gt; stack2 = new Stack&lt;Integer&gt;();</span><br><span class="line">    </span><br><span class="line">    public void push(int node) &#123;</span><br><span class="line">        stack1.push(node);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int pop() &#123;</span><br><span class="line">        if(stack2.empty())&#123;</span><br><span class="line">            while(!stack1.empty())&#123;</span><br><span class="line">                 stack2.push(stack1.pop());//执行完这一步后，stack1中已经没有元素了</span><br><span class="line">            &#125;</span><br><span class="line">            return stack2.pop().intValue();</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            return stack2.pop().intValue();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="求旋转数组的最小数字"><a href="#求旋转数组的最小数字" class="headerlink" title="求旋转数组的最小数字"></a>求旋转数组的最小数字</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//对于带有返回值的函数，对于每一个分支都要有return 的返回值形式</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public int minNumberInRotateArray(int [] array) &#123;</span><br><span class="line">        if(array.length==0) return 0;</span><br><span class="line">        if(array.length==1)&#123;</span><br><span class="line">            return array[0];</span><br><span class="line">        &#125;</span><br><span class="line">        for(int i=array.length-1;i&gt;0;i--)&#123;</span><br><span class="line">            if(array[i]&lt;array[i-1])&#123;</span><br><span class="line">          		return array[i];  </span><br><span class="line">        	&#125;</span><br><span class="line">        &#125;</span><br><span class="line">   return array[0];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="求第n向斐波那契数列的第n项"><a href="#求第n向斐波那契数列的第n项" class="headerlink" title="求第n向斐波那契数列的第n项"></a>求第n向斐波那契数列的第n项</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public int Fibonacci(int n) &#123;</span><br><span class="line">        if(n==1 || n==2)&#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">        if(n==0)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line">        int a=1;//代表第n-2项</span><br><span class="line">        int b=1;//代表n-1项</span><br><span class="line">        int tem=0;//临时变量</span><br><span class="line">        for(int i=3;i&lt;=n;i++)&#123;</span><br><span class="line">            tem=a+b;</span><br><span class="line">            a=b;</span><br><span class="line">            b=tem;</span><br><span class="line">        &#125;</span><br><span class="line">        return b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="跳台阶问题（一次可以跳一阶，一次也可以跳两阶，问n阶台阶有多少种跳法）"><a href="#跳台阶问题（一次可以跳一阶，一次也可以跳两阶，问n阶台阶有多少种跳法）" class="headerlink" title="跳台阶问题（一次可以跳一阶，一次也可以跳两阶，问n阶台阶有多少种跳法）"></a>跳台阶问题（一次可以跳一阶，一次也可以跳两阶，问n阶台阶有多少种跳法）</h4><ul>
+<li><p>思路一：运用递归的思想，把n阶台阶所具有的跳法可以看成n的一个函数f(n),把每两步作为一个单位来进行情况讨论，每两步可以有两种情况，一种情况跳一阶，一种情况跳两阶，对此总共的跳法为f(n-1)+f(n-2);找出出口的条件，同时利用递归的思想来编写非出口情况，这样写的好处是思路清晰，比较容易想到，缺点是：因为要利用递归的思想，所以要开许多的栈，随着n的增大需要开的栈的数量为2^n-1,而且需要计算许多重复的函数，代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    //运用了递归的思想，</span><br><span class="line">    public int JumpFloor(int target) &#123;</span><br><span class="line">        if(target==0) return 0;</span><br><span class="line">        if(target==1) return 1;</span><br><span class="line">        if(target==2) return 2;</span><br><span class="line">        if(target==3) return 3;</span><br><span class="line">        return JumpFloor(target-1)+JumpFloor(target-2);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>思路二：经过思路一的描述得知一个规律，每一个函数值f(n)都等于f(n-1)+f(n-2),因此我们可以只计算一次n的函数值，通过两项函数值相加递推出下一个函数值，这样只需要开一个栈就可以了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    //运用了递归的思想，</span><br><span class="line">    public int JumpFloor(int target) &#123;</span><br><span class="line">        int a=2;</span><br><span class="line">        int b=3;</span><br><span class="line">        int tem=0;</span><br><span class="line">        if(target==0) return 0;</span><br><span class="line">        if(target==1) return 1;</span><br><span class="line">        if(target==2) return 2;</span><br><span class="line">        if(target==3) return 3;</span><br><span class="line">        for(int i=4;i&lt;=target;i++)&#123;</span><br><span class="line">            tem=a+b;</span><br><span class="line">            a=b;</span><br><span class="line">            b=tem;</span><br><span class="line">        &#125;</span><br><span class="line">        return b;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="跳台阶问题升级（一次可以跳1阶，2阶，3阶……n阶，给定一个数n，求总共有多少种跳法）"><a href="#跳台阶问题升级（一次可以跳1阶，2阶，3阶……n阶，给定一个数n，求总共有多少种跳法）" class="headerlink" title="跳台阶问题升级（一次可以跳1阶，2阶，3阶……n阶，给定一个数n，求总共有多少种跳法）"></a>跳台阶问题升级（一次可以跳1阶，2阶，3阶……n阶，给定一个数n，求总共有多少种跳法）</h4><ul>
+<li>思路分析：也可以看成n的函数f(n),同时它的值等于前n-1项函数值的和再加一，同时也发现前一项和后一项的递推公式f(n)=((f(n-1)-1))<em>2+2=2</em>f(n-1)<br>证明：因为f(n)=f(1)+f(2)+f(3)+……+f(n-1)+1同时f(n-1)=f(1)+f(1)+f(2)+f(3)+……+f(n-2)+1,所以f(n)=f(n-1)-1+f(n-1)+1=2*f(n-1)</li>
+<li>同时发现f(n)是一个等比数列，以1为首项，2为公比<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public static int JumpFloorII(int target) &#123;  </span><br><span class="line">return (int)Math.pow(2, target-1);//在java中一个数的n次方用此函数解决，^这个符号不是几次方的意思</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="我们可以用21的小矩形横着或者竖着去覆盖更大的矩形。请问用n个21的小矩形无重叠地覆盖一个2-n的大矩形，总共有多少种方法？"><a href="#我们可以用21的小矩形横着或者竖着去覆盖更大的矩形。请问用n个21的小矩形无重叠地覆盖一个2-n的大矩形，总共有多少种方法？" class="headerlink" title="我们可以用21的小矩形横着或者竖着去覆盖更大的矩形。请问用n个21的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？"></a>我们可以用2<em>1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2</em>1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public int RectCover(int target) &#123;</span><br><span class="line">        if(target==0) return 1;</span><br><span class="line">        if(target==1) return 1;</span><br><span class="line">        if(target==2) return 2;</span><br><span class="line">        int a=1;</span><br><span class="line">        int b=2;</span><br><span class="line">        int tem=0;</span><br><span class="line">        for(int i=3;i&lt;=target;i++)&#123;</span><br><span class="line">            tem=a+b;</span><br><span class="line">            a=b;</span><br><span class="line">            b=tem;</span><br><span class="line">        &#125;</span><br><span class="line">        return b;</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。"><a href="#给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。" class="headerlink" title="给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。"></a>给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public double Power(double base, int exponent) &#123;</span><br><span class="line">        if(exponent==0)&#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;else if(exponent&gt;0)&#123;</span><br><span class="line">            double tem=1.0;</span><br><span class="line">            for(int i=1;i&lt;=exponent;i++)&#123;</span><br><span class="line">                tem=tem*base;</span><br><span class="line">            &#125;</span><br><span class="line">            return tem;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            double tem=1.0;</span><br><span class="line">            for(int i=1;i&lt;=(-1*exponent);i++)&#123;</span><br><span class="line">                tem=tem*base;</span><br><span class="line">            &#125;</span><br><span class="line">            return 1/tem;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>引申：关于浮点数运算的精度问题怎么解决，计算机中关于数值运算是怎么个物理过程</p>
+<h4 id="输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。"><a href="#输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。" class="headerlink" title="输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。"></a>输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">//此题有两种算法，第一种：新建一个数组。第二种：利用冒泡排序的方法</span><br><span class="line">package com.lu.demo;</span><br><span class="line">public class JumpFloor &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        int[] array = &#123; 1, 2, 3, 4, 5, 6, 7 &#125;;</span><br><span class="line">        reOrderArray(array);</span><br><span class="line">        for(int i=0;i&lt;array.length;i++)&#123;</span><br><span class="line">            System.out.print(array[i]);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void reOrderArray(int[] array) &#123;</span><br><span class="line">        int[] tem = new int[array.length];</span><br><span class="line">        for(int z=0;z&lt;array.length;z++)&#123;</span><br><span class="line">            tem[z]=array[z];</span><br><span class="line">        &#125;</span><br><span class="line">        int count = 0;</span><br><span class="line">        for (int i = 0; i &lt;tem.length; i++) &#123;</span><br><span class="line">            if (tem[i] % 2 == 1) &#123;</span><br><span class="line">                array[count] = tem[i];</span><br><span class="line">                if (count != array.length) &#123;</span><br><span class="line">                    count++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for (int j = 0; j &lt; array.length; j++) &#123;</span><br><span class="line">            if (tem[j] % 2 == 0) &#123;</span><br><span class="line">                array[count] = tem[j];</span><br><span class="line">                if (count != array.length) &#123;</span><br><span class="line">                    count++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>引发思考：当把一个引用类型的参数传递给一个函数，此函数是没有返回值的，在此函数中，改变这个对象的内存地址，并且改变后的地址的同类型的对象内的元数据和原来对象的元数据是不一样的，请问在主函数中经过上述函数的处理后，输出此对象，此对象和原来的对象中的元数据一样吗？<br>答案：不一样，因为把一个引用类型的数据当作参数传到一个函数中，只是把此数据的内存地址传递到此函数开辟的栈中，经过一系列的处理操作后，如果在此过程中没有改变原内存地址中的数据，只是把处理后的数据保存到了一个同类对象中，把原对象的符号引用的地址改变成新的对象的地址，又因为函数没有返回值，没有更新原有的符号引用的地址，所以函数对引用类型数据的改变都没有生效。</p>
+<h3 id="输入一个链表，输出该链表中倒数第k个结点。"><a href="#输入一个链表，输出该链表中倒数第k个结点。" class="headerlink" title="输入一个链表，输出该链表中倒数第k个结点。"></a>输入一个链表，输出该链表中倒数第k个结点。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">public class ListNode &#123;</span><br><span class="line">    int val;</span><br><span class="line">    ListNode next = null;</span><br><span class="line"></span><br><span class="line">    ListNode(int val) &#123;</span><br><span class="line">        this.val = val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;*/</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ListNode FindKthToTail(ListNode head,int k) &#123;</span><br><span class="line">        ListNode pre=head;</span><br><span class="line">        ListNode last=head;</span><br><span class="line">        int count=0;</span><br><span class="line">        int tem=k;</span><br><span class="line">        while(last!=null)&#123;</span><br><span class="line">            last=last.next;</span><br><span class="line">            count++;</span><br><span class="line">            if(tem&lt;1)&#123;</span><br><span class="line">                pre=pre.next;</span><br><span class="line">            &#125;</span><br><span class="line">            tem--;</span><br><span class="line">        &#125;</span><br><span class="line">        if(count&lt;k) return null;</span><br><span class="line">        return pre;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="输入一个链表，反转链表后，输出链表的所有元素。"><a href="#输入一个链表，反转链表后，输出链表的所有元素。" class="headerlink" title="输入一个链表，反转链表后，输出链表的所有元素。"></a>输入一个链表，反转链表后，输出链表的所有元素。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">//在此过程中只遍历一遍链表，方法一：通过创建两个临时变量来一次一次的创建新的节点来代替老的节点</span><br><span class="line">//第二种方法：直接在原始的链表节点中修改，来得到修改后的链表，这样做的好处，节省内存资源同时也不会消耗太多的时间。</span><br><span class="line">/*</span><br><span class="line">public class ListNode &#123;</span><br><span class="line">    int val;</span><br><span class="line">    ListNode next = null;</span><br><span class="line"></span><br><span class="line">    ListNode(int val) &#123;</span><br><span class="line">        this.val = val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;*/</span><br><span class="line">//第二种方法代码实现</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ListNode ReverseList(ListNode head) &#123;</span><br><span class="line">        if(head==null)&#123;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode tem=head;</span><br><span class="line">        ListNode temin=null;</span><br><span class="line">        ListNode tempre=null;</span><br><span class="line">        while(tem!=null)&#123;</span><br><span class="line">            tempre=new ListNode(tem.val);</span><br><span class="line">            tempre.next=temin;</span><br><span class="line">            temin=tempre;</span><br><span class="line">            tem=tem.next;</span><br><span class="line">        &#125;</span><br><span class="line">        head=temin;</span><br><span class="line">        return head;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。"><a href="#输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。" class="headerlink" title="输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。"></a>输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">//利用非递归方法的非完整代码（没有完成）</span><br><span class="line">/*</span><br><span class="line">public class ListNode &#123;</span><br><span class="line">    int val;</span><br><span class="line">    ListNode next = null;</span><br><span class="line"></span><br><span class="line">    ListNode(int val) &#123;</span><br><span class="line">        this.val = val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;*/</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ListNode Merge(ListNode list1,ListNode list2) &#123;</span><br><span class="line">        ListNode tem1=list1;</span><br><span class="line">        ListNode tem2=list2;</span><br><span class="line">      L1:  while(tem1!=null)&#123;</span><br><span class="line">          ListNode temlist1=null;</span><br><span class="line">          L2:  while(tem2!=null)&#123;</span><br><span class="line">              ListNode temlist2=null;</span><br><span class="line">                if(tem1.val&lt;=tem2.val)&#123;</span><br><span class="line">                    temlist1=tem1.next;</span><br><span class="line">                    tem1.next=tem2;</span><br><span class="line">                    tem2=tem2.next;</span><br><span class="line">                    tem1=temlist1;</span><br><span class="line">                    continue L2;</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    temlist2=tem2.next;</span><br><span class="line">                    tem2.next=tem1;</span><br><span class="line">                    tem1=tem1.next;</span><br><span class="line">                    tem2=temlist2;</span><br><span class="line">                    continue L1; </span><br><span class="line">                &#125;</span><br><span class="line">              </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>完整的用非递归方法实现链表的归并排序的代码实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">//重点：创建了两个相同具有相同地址的节点符号引用，一个用于在操作中当前节点的地址，另一个用于返回值时的使用</span><br><span class="line">/*</span><br><span class="line">public class ListNode &#123;</span><br><span class="line">    int val;</span><br><span class="line">    ListNode next = null;</span><br><span class="line"></span><br><span class="line">    ListNode(int val) &#123;</span><br><span class="line">        this.val = val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;*/</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ListNode Merge(ListNode list1,ListNode list2) &#123;</span><br><span class="line">        ListNode tem1=list1;</span><br><span class="line">        ListNode tem2=list2;</span><br><span class="line">        if(list1==null) return list2;</span><br><span class="line">        if(list2==null) return list1;</span><br><span class="line">        //创建两个相同指针的ListNode节点</span><br><span class="line">        ListNode head=new ListNode(0);</span><br><span class="line">        //curr代表当前节点</span><br><span class="line">        ListNode curr=head;</span><br><span class="line">        while(tem1!=null &amp;&amp; tem2!=null)&#123;</span><br><span class="line">            if(tem1.val&lt;=tem2.val)&#123;</span><br><span class="line">                curr.next=tem1;</span><br><span class="line">                tem1=tem1.next;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                curr.next=tem2;</span><br><span class="line">                tem2=tem2.next;</span><br><span class="line">            &#125;</span><br><span class="line">            curr=curr.next;</span><br><span class="line">        &#125;</span><br><span class="line">        curr.next=(tem1==null)?tem2:tem1;</span><br><span class="line">        return head.next;</span><br><span class="line">        </span><br><span class="line">      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>递归方法实现代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">public class ListNode &#123;</span><br><span class="line">    int val;</span><br><span class="line">    ListNode next = null;</span><br><span class="line"></span><br><span class="line">    ListNode(int val) &#123;</span><br><span class="line">        this.val = val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;*/</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public ListNode Merge(ListNode list1,ListNode list2) &#123;</span><br><span class="line">      if(list1==null)&#123;</span><br><span class="line">          return list2;</span><br><span class="line">      &#125;</span><br><span class="line">        if(list2==null)&#123;</span><br><span class="line">            return list1;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode premerge=null;</span><br><span class="line">        if(list1.val&lt;=list2.val)&#123;</span><br><span class="line">            premerge=list1;</span><br><span class="line">            premerge.next= Merge(list1.next,list2);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            premerge=list2;</span><br><span class="line">            premerge.next=Merge(list2.next,list1);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        return premerge;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面试/" rel="tag">#面试</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/10/数理统计/" rel="next" title="数理统计">
+                <i class="fa fa-chevron-left"></i> 数理统计
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/19/剑指offer/"
+           data-title="剑指offer" data-url="http://yoursite.com/2016/04/19/剑指offer/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xrp6g.com1.z0.glb.clouddn.com/head.jpg"
+               alt="jingshanglu" />
+          <p class="site-author-name" itemprop="name">jingshanglu</p>
+          <p class="site-description motion-element" itemprop="description">Talk is cheap, show me the code.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+          
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jingshanglu" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/jingshangLu" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> twitter
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.jianshu.com/1256534446@qq.com" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> jianshu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#根据二叉树的前序遍历和中序遍历来重建二叉树（二叉树的存储结构用二叉链表）"><span class="nav-number">1.</span> <span class="nav-text">根据二叉树的前序遍历和中序遍历来重建二叉树（二叉树的存储结构用二叉链表）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用两个栈（stack）实现一个队列的pop-和push-操作"><span class="nav-number">2.</span> <span class="nav-text">利用两个栈（stack）实现一个队列的pop()和push()操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#求旋转数组的最小数字"><span class="nav-number">3.</span> <span class="nav-text">求旋转数组的最小数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#求第n向斐波那契数列的第n项"><span class="nav-number">4.</span> <span class="nav-text">求第n向斐波那契数列的第n项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跳台阶问题（一次可以跳一阶，一次也可以跳两阶，问n阶台阶有多少种跳法）"><span class="nav-number">5.</span> <span class="nav-text">跳台阶问题（一次可以跳一阶，一次也可以跳两阶，问n阶台阶有多少种跳法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跳台阶问题升级（一次可以跳1阶，2阶，3阶……n阶，给定一个数n，求总共有多少种跳法）"><span class="nav-number">6.</span> <span class="nav-text">跳台阶问题升级（一次可以跳1阶，2阶，3阶……n阶，给定一个数n，求总共有多少种跳法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我们可以用21的小矩形横着或者竖着去覆盖更大的矩形。请问用n个21的小矩形无重叠地覆盖一个2-n的大矩形，总共有多少种方法？"><span class="nav-number">7.</span> <span class="nav-text">我们可以用21的小矩形横着或者竖着去覆盖更大的矩形。请问用n个21的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。"><span class="nav-number">8.</span> <span class="nav-text">给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。"><span class="nav-number">9.</span> <span class="nav-text">输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入一个链表，输出该链表中倒数第k个结点。"><span class="nav-number"></span> <span class="nav-text">输入一个链表，输出该链表中倒数第k个结点。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入一个链表，反转链表后，输出链表的所有元素。"><span class="nav-number"></span> <span class="nav-text">输入一个链表，反转链表后，输出链表的所有元素。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。"><span class="nav-number"></span> <span class="nav-text">输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。</span></a></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jingshanglu</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ternence"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+
+</body>
+</html>
